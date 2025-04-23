@@ -13,6 +13,9 @@
     "vite": "^6.3.1"
   },
   "dependencies": {
+    "@cornerstonejs/core": "^3.10.30",
+    "@cornerstonejs/dicom-image-loader": "^3.10.30",
+    "@cornerstonejs/tools": "^3.10.30",
     "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@tailwindcss/vite": "^4.1.4",
     "@vitejs/plugin-react": "^4.4.1",
