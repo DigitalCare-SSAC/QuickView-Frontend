@@ -1,35 +1,64 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Vite + TS</title>
-  </head>
 
-  <body class="bg-gray-100 flex h-screen overflow-hidden">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>Vite + TS</title>
+</head>
 
-    <div class="flex-1 flex flex-col overflow-y-auto items-center bg-gray-50">
+<body class="bg-gray-100 flex h-screen overflow-hidden">
 
-      <header class="bg-white shadow-lg py-4 px-6 flex items-center justify-between w-full">
+  <div class="flex-1 flex flex-col overflow-y-auto items-center bg-gray-50">
 
-        <a href="/Admin" class="flex justify-start items-center">
-          <img src="/quick-view.png" alt="Logo" width="196" height="32" class="h-auto">
-        </a>
+    <header class="bg-white shadow-lg py-4 px-6 flex items-center justify-between w-full">
 
-        <div class="flex items-center space-x-4">
+      <a href="/Admin" class="flex justify-start items-center">
+        <img src="/quick-view.png" alt="Logo" width="196" height="32" class="h-auto">
+      </a>
 
-          <div class="flex items-center space-x-2">
-            <svg class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-            </svg>
-            <span class="text-gray-700 text-sm">Dr. Carlos Galindo</span>
-          </div>
+      <div class="flex items-center space-x-4">
+
+        <div class="flex items-center space-x-2">
+          <svg class="w-6 h-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span class="text-gray-700 text-sm">Dr. Carlos Galindo</span>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
+    <div class="flex justify-center items-start px-6 space-x-4 overflow-hidden">
 
-    <script type="module" src="/src/ts/main.ts"></script>
-  </body>
+      <div id="content" class="flex-1 bg-white rounded-lg shadow p-6 max-w-6xl h-[80vh] overflow-hidden m-auto">
+      </div>
+
+      <div class="flex flex-col items-center w-20 gap-6 pt-4">
+        <div class="tool-icon" id="default">
+          <img src="/events/default.svg" alt="Default" class="tool-img" />
+        </div>
+        <div class="tool-icon" id="zoom">
+          <img src="/events/zoom.svg" alt="Zoom" class="tool-img" />
+        </div>
+        <div class="tool-icon" id="rotate">
+          <img src="/events/rotate.svg" alt="Rotate" class="tool-img" />
+        </div>
+        <div class="tool-icon" id="move">
+          <img src="/events/move.svg" alt="Move" class="tool-img" />
+        </div>
+        <div class="tool-icon" id="ruler">
+          <img src="/events/ruler.svg" alt="Ruler" class="tool-img" />
+        </div>
+        <div class="tool-icon" id="highlight">
+          <img src="/events/circle.svg" alt="Highlight" class="tool-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/ts/main.ts"></script>
+</body>
+
 </html>
