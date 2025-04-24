@@ -48,8 +48,8 @@ const viewportId = 'CT_AXIAL_STACK';
 const renderingEngineId = 'myRenderingEngine';
 const toolGroupId = 'myToolGroup';
 
-const zipUrl = import.meta.env.VITE_DICOM_ZIP_URL;
-const imageId: string[] = await loadDicomImagesFromZip(zipUrl);
+// const zipUrl = import.meta.env.VITE_DICOM_ZIP_URL;
+// const imageId: string[] = await loadDicomImagesFromZip(zipUrl);
 
 const imageIds = ['wadouri:https://storage.googleapis.com/digital-care-bucket/dicoms/e07955cf-d31d-4362-988a-6a42ffad20a9.dcm?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=digital-care-admin%40cedar-abacus-454021-a6.iam.gserviceaccount.com%2F20250423%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20250423T211946Z&X-Goog-Expires=259200&X-Goog-SignedHeaders=host&X-Goog-Signature=086d4c9d0e192519d61c98685ab650c8f78863c679c9dde750cad101bc5386b6961f1c26fa9348e0a17e171e00b1bc512b4eba86ce98fed788964561e1cb2bfb7a0501819b2d4c65e01f4959aee7a3c95a0f2a3d5a39bbbacbab3bcc7de3f9d746de0bb7c25d43615c58032a5af5f55ead3c2a9a0605089ce3f693c1749720c5d495cf31de96a8a48681d574c59952146e12641f29eb2d56947242e0f9678357e811bb8f70b35ecaa5ea784fbe2003afd4396c59441cce2dfa5b1e149f074f34c7fd896271761824abc7a8db66b2ad24c4326c9192a39822c01ce063f44a281391550ad26f7125248fdbe5370e716682655efc6d84116fbeca29400ecdaae333']
 
@@ -58,10 +58,9 @@ async function run() {
   dicomImageLoaderInit();
   cornerstoneToolsInit();
 
-  imageIds.forEach((id) => {
-    registerImageLoader('blob', loadImage);
-  });
-
+  // imageIds.forEach((id) => {
+  //   registerImageLoader('blob', loadImage);
+  // });
 
   renderingEngine = new RenderingEngine(renderingEngineId);
 
@@ -74,9 +73,9 @@ async function run() {
   renderingEngine.enableElement(viewportInput);
   const viewport = renderingEngine.getViewport(viewportId) as StackViewport;
 
-  console.log('imageId', imageId);
-  await viewport.setStack(imageId, 0);
-  // await viewport.setStack(imageIds, 0);
+  // console.log('imageId', imageId);
+  // await viewport.setStack(imageId, 0);
+  await viewport.setStack(imageIds, 0);
 
   viewport.render();
 
