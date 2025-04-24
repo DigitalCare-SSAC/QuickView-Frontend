@@ -7,11 +7,19 @@ export default async function loadDicomImagesFromZip(url: string): Promise<strin
     const imageIds: string[] = [];
 
     for (const fileName in zip.files) {
-        if (fileName.endsWith(".dcm")) {
-            const fileData = await zip.file(fileName).async("blob");
-            const imageId = URL.createObjectURL(fileData);
-            imageIds.push(imageId);
+        if (!fileName) {
+            throw new Error("File name is empty or undefined");
         }
+        if (!fileName.endsWith(".dcm")) {
+            throw new Error(`File ${fileName} is not a DICOM file`);
+        }
+        const file = zip.file(fileName);
+        if (!file) {
+            throw new Error(`File ${fileName} not found in the zip archive`);
+        }
+        const fileData = await file.async("blob");
+        const imageId = URL.createObjectURL(fileData);
+        imageIds.push(imageId);
     }
 
     return imageIds;
