@@ -19,6 +19,7 @@
     "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@tailwindcss/vite": "^4.1.4",
     "@vitejs/plugin-react": "^4.4.1",
+    "jszip": "^3.10.1",
     "tailwindcss": "^4.1.4"
   }
 }
