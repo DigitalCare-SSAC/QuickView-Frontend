@@ -1,19 +1,17 @@
-import { parseImageId } from "@cornerstonejs/dicom-image-loader/wadouri";
-import * as cornerstone from "@cornerstonejs/core";
-
-export function loadImage(imageId: string) {
-    const url = parseImageId(imageId);
+export function loadImage(imageId: string): {
+    promise: Promise<Record<string, unknown>>;
+    cancelFn?: () => void;
+    decache?: () => void;
+  } {
 
     const promise = new Promise((resolve, reject) => {
         const oReq = new XMLHttpRequest();
-        oReq.open('get', url, true);
+        oReq.open('get', imageId, true);
         oReq.responseType = 'arraybuffer';
 
         oReq.onreadystatechange = function () {
             if (oReq.readyState === 4) {
                 if (oReq.status === 200) {
-                    // Aquí podrías parsear o decodificar el arrayBuffer real
-                    // Pero en este ejemplo simplemente simulas un objeto imagen
                     const image = createImageObject(imageId);
                     resolve(image);
                 } else {
@@ -26,7 +24,7 @@ export function loadImage(imageId: string) {
     });
 
     return {
-        promise,
+        promise: promise as Promise<Record<string, unknown>>,
         cancelFn: undefined
     };
 }
@@ -53,7 +51,7 @@ function createImageObject(imageId: string) {
         windowCenter: 127,
         windowWidth: 256,
         getPixelData,
-        render: cornerstone.renderGrayscaleImage, // Requerido por Cornerstone
+        // render: cornerstone.renderGrayscaleImage, // Requerido por Cornerstone
         rows: height,
         columns: width,
         height,
